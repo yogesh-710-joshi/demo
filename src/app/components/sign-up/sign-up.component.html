@@ -1,0 +1,98 @@
+<div class="c-app flex-row align-items-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card mx-4">
+            
+            <div class="card-body p-4">
+              <h1>Register</h1>
+              <p class="text-muted">Create your account</p>
+              <form  [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend"><span class="input-group-text">
+  </span></div>
+                <input class="form-control" type="text"
+                 formControlName="name"
+                 [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                  placeholder="Username">
+                  <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">Name is required</div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend"><span class="input-group-text">
+                   </span></div>
+                <input class="form-control"
+                 type="text" formControlName="c_number"
+                 [ngClass]="{ 'is-invalid': submitted && f.c_number.errors }"
+                  placeholder="Contact Number">
+                  <div *ngIf="submitted && f.c_number.errors" class="invalid-feedback">
+                    <div *ngIf="f.c_number.errors.phoneLength">Contact Number shouild be of 10 digits</div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend"><span class="input-group-text">
+                 </span></div>
+                <input
+                 class="form-control" 
+                 type="text" formControlName="email"
+                 [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                 placeholder="Email">
+                 <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">Email is required</div>
+                  <div *ngIf="f.email.errors.pattern">Email is not valid</div>
+                  <div *ngIf="f.email.errors.emailAlreadyExists">Email has already been taken</div>
+              </div>
+              </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend"><span class="input-group-text">
+                 </span></div>
+                <input 
+                class="form-control" 
+                type="password" 
+                formControlName="password"
+                [ngClass]="{ 'is-invalid': submitted && f.password.errors }" 
+                placeholder="Password">
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required ">Password is required</div>
+                  <div *ngIf="f.password.errors.minlength ">Password should contain atleast six characters</div>
+              </div>
+              </div>
+              <div class="input-group mb-4">
+                <div class="input-group-prepend"><span class="input-group-text">
+                   </span></div>
+                <input
+                 class="form-control"
+                type="password"
+                formControlName="confirm_password"
+                [ngClass]="{ 'is-invalid': submitted && f.confirm_password.errors }"  
+                placeholder="Repeat password">
+                <div *ngIf="submitted && f.confirm_password.errors" class="invalid-feedback">
+                  <div *ngIf="f.confirm_password.errors.required">This field is required</div>
+                  <div *ngIf="f.confirm_password.errors?.mustMatch">Passwords don't match</div>
+              </div>
+              </div>
+              <button class="btn btn-block btn-success" type="submit">Create Account</button>
+             </form>
+            </div>
+    
+            <!-- <div class="card-footer p-4">
+              <div class="row">
+                <div class="col-6">
+                  <button class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>
+                </div>
+                <div class="col-6">
+                  <button class="btn btn-block btn-twitter" type="button"><span>twitter</span></button>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CoreUI and necessary plugins-->
+    <script src="node_modules/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
+    <!--[if IE]><!-->
+    <script src="node_modules/@coreui/icons/js/svgxuse.min.js"></script>
+    <!--<![endif]-->
+    </div>

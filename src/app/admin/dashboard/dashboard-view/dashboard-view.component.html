@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="row">
+    <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="card-title"> Users</h1>
+      </div>
+      <ngx-spinner>
+        <p class="loader">Loading</p>
+      </ngx-spinner>
+    
+      <div class="card-body">
+        <div *ngIf="users.length > 0" class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                S. No.
+              </th>
+              <th>
+                Name
+              </th>
+              <th>
+                Email
+              </th>
+              <th>
+                Contact
+              </th>
+              <th class="text-right">
+                Action
+              </th>
+              <th class="text-right">
+                
+              </th>
+            </thead>
+            <tbody>
+
+           <tr *ngFor="let user of users | paginate: { itemsPerPage: 5, currentPage: p } ; let i = index">
+                <td>
+                  {{5 * (p-1) +i + 1}}
+                </td>
+                <td>
+                  {{user.name}}
+                </td>
+                <td>
+                  {{user.email}}
+                </td>
+                <td>
+                  {{user.contact_number}}
+                </td>
+                <td class="text-right">
+                  <a [routerLink]="['/admin/dashboard/edit', user._id, user.name, user.contact_number, user.email]">
+                  <button class="btn btn-info">Edit</button>
+                </a>
+                </td>
+                <td class="text-right">
+                  <button (click)="removeUser(user._id)" class="btn btn-danger">Remove</button>
+                </td>
+              </tr>
+            
+             
+            </tbody>
+          </table>
+        </div>
+        <div *ngIf="users.length == 0" class="no-users">
+          No users to display
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>

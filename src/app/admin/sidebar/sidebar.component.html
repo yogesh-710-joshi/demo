@@ -1,0 +1,42 @@
+
+<div class="logo">
+    <a href="https://www.creative-tim.com" class="simple-text logo-mini">
+      <div class="logo-img">
+          <img src="./assets/img/angular2-logo-white.png"/>
+      </div>
+    </a>
+    <a class="simple-text logo-normal">
+        {{userInfo.name}}
+    </a>
+</div>
+<div class="sidebar-wrapper">
+    <ul class="nav">
+        <li id ="dashboard" #item1 (click)="itemSelect($event)"
+          [ngClass]="[ activated == 'dashboard' ? 'nav-item active' : 'nav-item']">
+            <a routerLink="/admin">
+                <i class="now-ui-icons design_app"></i>
+                <p>Dashboard</p>
+            </a>
+        </li>
+        <li id = "item2" #item2 (click)="itemSelect($event)" 
+        [ngClass]="[ activated == 'item2' ? 'nav-item active' : 'nav-item']">
+            <a>
+                <i class="now-ui-icons design_app"></i>
+                <p>Item 1</p>
+            </a>
+        </li>
+        <li id="item3" #item3 (click)="itemSelect($event)"
+        [ngClass]="[ activated == 'item3' ? 'nav-item active' : 'nav-item']">
+            <a>
+                <i class="now-ui-icons design_app"></i>
+                <p>Item 2</p>
+            </a>
+        </li>
+        <li routerLinkActive="active"  class="nav-item">
+            <a (click)="logout()">
+                <i class="now-ui-icons design_app"></i>
+                <p>Log Out</p>
+            </a>
+        </li>
+    </ul>
+</div>

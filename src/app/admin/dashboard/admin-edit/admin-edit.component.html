@@ -1,0 +1,31 @@
+
+     
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-6">
+                  <div class="card mx-4">             
+                    <div class="card-body p-4">
+                      <h1>Edit Details</h1>
+                      <form  [formGroup]="admineditForm" (ngSubmit)="onSubmit()">
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend"><span class="input-group-text">
+          </span></div>
+                        <input class="form-control" type="text" formControlName="name" placeholder="Username">
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend"><span class="input-group-text">
+                           </span></div>
+                        <input class="form-control" type="number" formControlName="contact_number" placeholder="Contact Number">
+                      </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend"><span class="input-group-text">
+                         </span></div>
+                        <input class="form-control" type="text" formControlName="email" placeholder="Email">
+                      </div>
+                      <button class="btn btn-block btn-success" type="submit">Update</button>
+                     </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
